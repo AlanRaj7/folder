@@ -10,57 +10,48 @@ class Exam extends StatefulWidget {
 class _ExamState extends State<Exam> {
   Color _containerColor = Colors.black;
 
-  void _changeColor(Color color) {
-    setState(() {
-      _containerColor = color;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Color Picker"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("Color Picker",style: TextStyle(fontSize: 35,fontWeight: FontWeight.bold),),),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () => _changeColor(Colors.red),
-              child: Text("Red"),
-            ),
-            ElevatedButton(
-              onPressed: () => _changeColor(Colors.green),
-              child: Text("Green"),
-            ),
-            ElevatedButton(
-              onPressed: () => _changeColor(Colors.blue),
-              child: Text("Blue"),
-            ),
-            ElevatedButton(
-              onPressed: () => _changeColor(Colors.yellow),
-              child: Text("Yellow"),
-            ),
-            ElevatedButton(
-              onPressed: () => _changeColor(Colors.orange),
-              child: Text("Orange"),
-            ),
-            Container(
-              color: _containerColor,
-              width: 250,
-              height: 250,
-            )
+            ElevatedButton(onPressed: () {
+              setState(() {
+                      _containerColor = Colors.red; // Change to red
+              });
+             
+            }, child: Text("RED")),
+            ElevatedButton(onPressed: () {
+              setState(() {
+                      _containerColor = Colors.green; // Change to red
+               });
+            }, child: Text("GREEN")),
+            ElevatedButton(onPressed: () {
+              setState(() {
+                      _containerColor = Colors.blue; // Change to red
+               });
+            }, child: Text("BLUE")),
+            ElevatedButton(onPressed: () {
+             setState(() {
+                      _containerColor = Colors.yellow; // Change to red
+                    });
+            }, child: Text("YELLOW")),
+            ElevatedButton(onPressed: () {
+             setState(() {
+                      _containerColor = Colors.orange; // Change to red
+                  });
+            }, child: Text("ORANGE")),
+             Container(
+                height: 300,
+                width: 300,
+                color: _containerColor,
+              ),
           ],
         ),
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Exam(),
-  ));
 }
